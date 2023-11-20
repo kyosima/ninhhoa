@@ -1,4 +1,3 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vincare/unit.dart';
@@ -11,24 +10,39 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: ConvexAppBar(
-        style: TabStyle.react,
-        color: Colors.white,
-        activeColor: Colors.white,
-        backgroundColor: pColor,
-        elevation: 0.5,
-        items: const [
+    final kWidth = MediaQuery.of(context).size.width;
 
-          TabItem(icon: Icons.home, title: 'Trang chủ'),
-          TabItem(icon: Icons.person, title: 'Điều khoản'),
-        ],
-        initialActiveIndex: controller.initPage.value,
-        onTap: (int i) {
-          controller.initPage.value = i;
-        },
+    return Obx(
+      () => Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          selectedFontSize: kWidth < 600 ? 14 : 20,
+          type: BottomNavigationBarType.fixed,
+          unselectedFontSize: kWidth < 600 ? 14 : 20,
+          iconSize: kWidth < 600 ? 30 : 40,
+          unselectedItemColor: const Color(0xff666666),
+          selectedItemColor: pColor,
+          unselectedLabelStyle: TextStyle(
+            color: Colors.black87,
+          ),
+          onTap: (index) {
+            controller.selectIndex(index);
+          },
+          currentIndex: controller.selectedIndex.value,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+              ),
+              label: 'Trang chủ',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.policy_outlined),
+              label: 'Điều khoản',
+            ),
+          ],
+        ),
+        body: controller.listPage[controller.selectedIndex.value],
       ),
-      body: Obx(() => controller.listPage[controller.initPage.value]),
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:autoscale_tabbarview/autoscale_tabbarview.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -83,70 +81,70 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                   // ),
                   SizedBox(
                     height: kWidth < 600 ? 45 : 75,
-                    width: kWidth*0.4,
+                    width: kWidth * 0.4,
                     child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
-                        ),
-                        onPressed: () {
-                          // if (controller.tokenKey.value == '') {
-                          //   Get.toNamed('/login');
-                          //   Get.snackbar(
-                          //       'Thông báo', 'Vui lòng đăng nhập để mua hàng');
-                          // } else {
-                          //   controller.addToCart(
-                          //     qty: controller.quantity.value.toString(),
-                          //   );
-                          // }
-                        },
-                        child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Icon(Icons.call),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Liên hệ tư vấn',
-                                  ),
-                                ],
-                              ),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.blueAccent),
                       ),
-
-                  ),SizedBox(
+                      onPressed: () {
+                        // if (controller.tokenKey.value == '') {
+                        //   Get.toNamed('/login');
+                        //   Get.snackbar(
+                        //       'Thông báo', 'Vui lòng đăng nhập để mua hàng');
+                        // } else {
+                        //   controller.addToCart(
+                        //     qty: controller.quantity.value.toString(),
+                        //   );
+                        // }
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.call),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Liên hệ tư vấn',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
                     height: kWidth < 600 ? 45 : 75,
-                    width: kWidth*0.4,
+                    width: kWidth * 0.4,
                     child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(pColor),
-                        ),
-                        onPressed: () {
-                          // if (controller.tokenKey.value == '') {
-                          //   Get.toNamed('/login');
-                          //   Get.snackbar(
-                          //       'Thông báo', 'Vui lòng đăng nhập để mua hàng');
-                          // } else {
-                          //   controller.addToCart(
-                          //     qty: controller.quantity.value.toString(),
-                          //   );
-                          // }
-                        },
-                        child:  Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Icon(Icons.facebook),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Mua máy',
-                                  ),
-                                ],
-                              ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(pColor),
                       ),
-
+                      onPressed: () {
+                        // if (controller.tokenKey.value == '') {
+                        //   Get.toNamed('/login');
+                        //   Get.snackbar(
+                        //       'Thông báo', 'Vui lòng đăng nhập để mua hàng');
+                        // } else {
+                        //   controller.addToCart(
+                        //     qty: controller.quantity.value.toString(),
+                        //   );
+                        // }
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.facebook),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Mua máy',
+                          ),
+                        ],
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -271,11 +269,13 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Container(
+                                                width: kWidth * 0.15,
+                                                height: kWidth * 0.15,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   border: Border.all(
-                                                      color: Colors.blue
-                                                          .withOpacity(0.3)),
+                                                      color: pColor
+                                                          .withOpacity(0.4)),
                                                   borderRadius:
                                                       BorderRadius.circular(10),
                                                 ),
@@ -287,7 +287,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                                                         .value!.gallery![index],
                                                     width: kWidth * 0.15,
                                                     height: kWidth * 0.15,
-                                                    fit: BoxFit.cover,
+                                                    fit: BoxFit.contain,
                                                   ),
                                                 )),
                                           ));

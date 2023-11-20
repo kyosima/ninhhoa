@@ -35,10 +35,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        progressIndicatorTheme: ProgressIndicatorThemeData(color: pColor),
         primaryColor: pColor,
         appBarTheme: AppBarTheme(
           backgroundColor: pColor,
-        )
+        ),
       ),
       debugShowCheckedModeBanner: false,
       title: 'TopZone',
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: ('/login'),
           page: () => LoginPage(),
-        ),GetPage(
+        ),
+        GetPage(
           name: ('/search'),
           page: () => SearchPage(),
         ),

@@ -17,17 +17,17 @@ class PrivacyPolicyPage extends StatelessWidget {
           child: const Text('''CHÍNH SÁCH BẢO MẬT THÔNG TIN
 Áp dụng từ ngày: 22/10/2021
 
-wjn’s cam kết sẽ bảo mật những thông tin mang tính riêng tư của bạn. Bạn vui lòng đọc bản "Chính sách bảo mật" dưới đây để hiểu hơn những cam kết mà chúng tôi thực hiện, nhằm tôn trọng và bảo vệ quyền lợi của người truy cập:
+Điện thoại Ninh Hòa cam kết sẽ bảo mật những thông tin mang tính riêng tư của bạn. Bạn vui lòng đọc bản "Chính sách bảo mật" dưới đây để hiểu hơn những cam kết mà chúng tôi thực hiện, nhằm tôn trọng và bảo vệ quyền lợi của người truy cập:
 
 1. Mục đích và phạm vi thu thập
 
-- Để truy cập và sử dụng một số dịch vụ tại wjn’s, bạn có thể sẽ được yêu cầu đăng ký với chúng tôi thông tin cá nhân (Email, Họ tên, Số ĐT liên lạc…). Mọi thông tin khai báo phải đảm bảo tính chính xác và hợp pháp. wjn’s không chịu mọi trách nhiệm liên quan đến pháp luật của thông tin khai báo. 
+- Để truy cập và sử dụng một số dịch vụ tại wjn’s, bạn có thể sẽ được yêu cầu đăng ký với chúng tôi thông tin cá nhân (Email, Họ tên, Số ĐT liên lạc…). Mọi thông tin khai báo phải đảm bảo tính chính xác và hợp pháp. Điện thoại Ninh Hòa không chịu mọi trách nhiệm liên quan đến pháp luật của thông tin khai báo. 
 
 - Chúng tôi cũng có thể thu thập thông tin về số lần viếng thăm, bao gồm số trang bạn xem, số links (liên kết) bạn click và những thông tin khác liên quan đến việc kết nối đến site wjn’s. Chúng tôi cũng thu thập các thông tin mà trình duyệt Web (Browser) bạn sử dụng mỗi khi truy cập vào wjn’s, bao gồm: địa chỉ IP, loại Browser, ngôn ngữ sử dụng, thời gian và những địa chỉ mà Browser truy xuất đến.
 
 2. Phạm vi sử dụng thông tin
 
-wjn’s thu thập và sử dụng thông tin cá nhân bạn với mục đích phù hợp và hoàn toàn tuân thủ nội dung của “Chính sách bảo mật” này.
+Điện thoại Ninh Hòa thu thập và sử dụng thông tin cá nhân bạn với mục đích phù hợp và hoàn toàn tuân thủ nội dung của “Chính sách bảo mật” này.
 
 Cụ thể:
 
@@ -41,7 +41,7 @@ Khi cần thiết, chúng tôi có thể sử dụng những thông tin này và
 
 - Giải quyết khiếu nại của khách hàng.
 
-- Thông tin trao thưởng (của wjn’s hoặc của hãng).
+- Thông tin trao thưởng (của Điện thoại Ninh Hòa hoặc của hãng).
 
 - Gởi thông tin cho công ty tài chính để tiếp nhận, thẩm định & duyệt hồ sơ trả góp.
 
@@ -68,7 +68,7 @@ Hiện website chưa triển khai trang quản lý thông tin cá nhân của th
 
 - Khách hàng có quyền yêu cầu thay đổi hoặc huỷ bỏ thông tin cá nhân của mình.
 
-- Thông tin cá nhân của thành viên trên wjn’s được wjn’s cam kết bảo mật tuyệt đối theo chính sách bảo vệ thông tin cá nhân của wjn’s. Việc thu thập và sử dụng thông tin của mỗi thành viên chỉ được thực hiện khi có sự đồng ý của khách hàng đó trừ những trường hợp pháp luật có quy định khác.
+- Thông tin cá nhân của thành viên trên Điện thoại Ninh Hòa được Điện thoại Ninh Hòa cam kết bảo mật tuyệt đối theo chính sách bảo vệ thông tin cá nhân của wjn’s. Việc thu thập và sử dụng thông tin của mỗi thành viên chỉ được thực hiện khi có sự đồng ý của khách hàng đó trừ những trường hợp pháp luật có quy định khác.
 
 - Chỉ sử dụng thông tin khách hàng vào các nội dung ở mục 2. Không phát tán, cung cấp thông tin khách hàng cho bên thứ 3 trừ trường hợp:
 
@@ -76,11 +76,11 @@ Hiện website chưa triển khai trang quản lý thông tin cá nhân của th
 
 + Cung cấp cho bên thứ 3 sau khi khách hàng mua hàng để gửi tin nhắn cho khách hàng các thông tin về sản phẩm, bảo hành, chính sách dịch vụ, khuyến mãi, khảo sát hoặc xác nhận các thông tin về kỹ thuật & bảo mật thông tin khách hàng.
 
-- Chúng tôi cam kết  sử dụng các biện pháp quản lý, kỹ thuật phù hợp để bảo vệ thông tin  do mình thu thập, lưu trữ; tuân thủ các tiêu chuẩn, quy chuẩn kỹ thuật về bảo đảm an toàn thông tin mạng. Trong trường hợp máy chủ lưu trữ thông tin bị hacker tấn công dẫn đến mất mát dữ liệu cá nhân thành viên, wjn’s sẽ có trách nhiệm thông báo vụ việc cho cơ quan chức năng điều tra xử lý kịp thời và thông báo cho thành viên được biết.
+- Chúng tôi cam kết  sử dụng các biện pháp quản lý, kỹ thuật phù hợp để bảo vệ thông tin  do mình thu thập, lưu trữ; tuân thủ các tiêu chuẩn, quy chuẩn kỹ thuật về bảo đảm an toàn thông tin mạng. Trong trường hợp máy chủ lưu trữ thông tin bị hacker tấn công dẫn đến mất mát dữ liệu cá nhân thành viên, Điện thoại Ninh Hòa sẽ có trách nhiệm thông báo vụ việc cho cơ quan chức năng điều tra xử lý kịp thời và thông báo cho thành viên được biết.
 
 - Bảo mật tuyệt đối mọi thông tin giao dịch trực tuyến của Thành viên bao gồm thông tin hóa đơn kế toán chứng từ số hóa tại khu vực dữ liệu trung tâm an toàn cấp 1 của wjn’s.
 
-- Ban quản lý wjn’s yêu cầu các cá nhân khi đăng ký/mua hàng là thành viên, phải cung cấp đầy đủ thông tin cá nhân có liên quan như: Họ và tên, địa chỉ liên lạc, email, số chứng minh nhân dân, điện thoại, số tài khoản, số thẻ thanh toán,… và chịu trách nhiệm về tính pháp lý của những thông tin trên. Ban quản lý wjn’s không chịu trách nhiệm cũng như không giải quyết mọi khiếu nại có liên quan đến quyền lợi của Thành viên đó nếu xét thấy tất cả thông tin cá nhân của thành viên đó cung cấp khi đăng ký ban đầu là không chính xác. '''),
+- Ban quản lý Điện thoại Ninh Hòa yêu cầu các cá nhân khi đăng ký/mua hàng là thành viên, phải cung cấp đầy đủ thông tin cá nhân có liên quan như: Họ và tên, địa chỉ liên lạc, email, số chứng minh nhân dân, điện thoại, số tài khoản, số thẻ thanh toán,… và chịu trách nhiệm về tính pháp lý của những thông tin trên. Ban quản lý Điện thoại Ninh Hòa không chịu trách nhiệm cũng như không giải quyết mọi khiếu nại có liên quan đến quyền lợi của Thành viên đó nếu xét thấy tất cả thông tin cá nhân của thành viên đó cung cấp khi đăng ký ban đầu là không chính xác. '''),
         ),
       ),
     );

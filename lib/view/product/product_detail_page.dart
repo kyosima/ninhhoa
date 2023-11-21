@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../controller/product/product_detail_controller.dart';
 import '../../unit.dart';
@@ -87,7 +88,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         backgroundColor:
                             MaterialStateProperty.all(Colors.blueAccent),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         // if (controller.tokenKey.value == '') {
                         //   Get.toNamed('/login');
                         //   Get.snackbar(
@@ -97,6 +98,13 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         //     qty: controller.quantity.value.toString(),
                         //   );
                         // }
+
+                        if (!await launchUrl(
+                          Uri.parse('https://zalo.me/0372920000'),
+                          mode: LaunchMode.externalApplication,
+                        )) {
+                          throw Exception('Could not launch $url');
+                        }
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -120,7 +128,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(pColor),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         // if (controller.tokenKey.value == '') {
                         //   Get.toNamed('/login');
                         //   Get.snackbar(
@@ -130,6 +138,12 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         //     qty: controller.quantity.value.toString(),
                         //   );
                         // }
+                        if (!await launchUrl(
+                          Uri.parse('https://m.me/100035436364918'),
+                          mode: LaunchMode.externalApplication,
+                        )) {
+                          throw Exception('Could not launch $url');
+                        }
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

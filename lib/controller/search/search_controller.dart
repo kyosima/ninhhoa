@@ -22,6 +22,7 @@ class SearchController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     searchResult(keyword: key);
+    keyword.text = key;
   }
 
   void searchResult({String? keyword}) async {

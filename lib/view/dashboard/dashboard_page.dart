@@ -21,14 +21,14 @@ class DashboardPage extends StatelessWidget {
           iconSize: kWidth < 600 ? 30 : 40,
           unselectedItemColor: const Color(0xff666666),
           selectedItemColor: pColor,
-          unselectedLabelStyle: TextStyle(
+          unselectedLabelStyle: const TextStyle(
             color: Colors.black87,
           ),
           onTap: (index) {
             controller.selectIndex(index);
           },
           currentIndex: controller.selectedIndex.value,
-          items: <BottomNavigationBarItem>[
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_outlined,

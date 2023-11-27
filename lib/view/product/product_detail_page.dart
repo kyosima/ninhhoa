@@ -38,6 +38,19 @@ class _ProductDetailPageState extends State<ProductDetailPage>
         appBar: AppBar(
           title: const Text('Thông tin sản phẩm'),
         ),
+      floatingActionButton: FloatingActionButton(
+          elevation: 0.0,
+          child: Icon(Icons.call),
+          backgroundColor:pColor,
+          onPressed: ()async{
+            if (!await launchUrl(
+              Uri.parse('tel:0372920000'),
+              mode: LaunchMode.externalApplication,
+            )) {
+              throw Exception('Could not launch $url');
+            }
+          }
+      ),
         bottomNavigationBar: BottomAppBar(
           child: SizedBox(
             height: kHeight * 0.09,
@@ -100,23 +113,29 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         //   );
                         // }
 
-                        if (!await launchUrl(
-                          Uri.parse('https://zalo.me/0372920000'),
-                          mode: LaunchMode.externalApplication,
-                        )) {
-                          throw Exception('Could not launch $url');
-                        }
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.call),
+                        children:  [
+                          Stack(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5)
+                                ),
+                                width: 20,
+                                height: 18,
+                              ),
+                              Image.asset('assets/images/zalo.png',width: 20,)
+                            ],
+                          ),
                           SizedBox(
                             width: 10,
                           ),
                           Text(
-                            'Liên hệ tư vấn',
+                            '037 292 0000 ',
                           ),
                         ],
                       ),

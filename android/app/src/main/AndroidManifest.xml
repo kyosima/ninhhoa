@@ -15,9 +15,9 @@
         </intent>
     </queries>
    <application
-        android:label="ninhhoa"
+        android:label="Ninh Hòa Mobile"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
         <activity
             android:name=".MainActivity"

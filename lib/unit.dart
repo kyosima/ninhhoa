@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const pColor = Color(0xfff80327);
+const pColor = Color(0xffff0140);
 const sColor = Colors.black;
 const url = "https://server50.mevivu.com/banhang2";
 const tokenAccess = "ijCCtggxLEkG3Yg8hNKZJvMM4EA1Rw4VjVvyIOb7";

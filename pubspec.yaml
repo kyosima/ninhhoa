@@ -51,6 +51,7 @@ dependencies:
   flutter_launcher_icons: ^0.11.0
   shimmer: ^3.0.0
   url_launcher: 6.1.11
+  lottie: ^2.3.2
 
 
 dev_dependencies:
@@ -98,6 +99,7 @@ flutter:
     - assets/images/fix.png
     - assets/images/zalo.png
     - assets/images/mess.png
+    - assets/animations/loading.json
 
 
   # An image assets can refer to one or more resolution-specific "variants", see

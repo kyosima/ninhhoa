@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../controller/blog/blog_detail_controller.dart';
 import '../../widget/custom_text.dart';
@@ -20,10 +21,22 @@ class BlogDetailPage extends StatelessWidget {
         ),
         body: Obx(() {
           if (controller.isLoading.value) {
-            return SizedBox(
-              height: kHeight * 0.7,
-              child: const Center(
-                child: CircularProgressIndicator(),
+            return SingleChildScrollView(
+              child: Container(
+                height: kHeight,
+                color: Color(0xfff6f6f6),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                        height: kHeight * 0.8,
+                        child: Center(
+                            child: Lottie.asset(
+                                'assets/animations/loading.json',
+                                width: kWidth,
+                                fit: BoxFit.cover))),
+                  ],
+                ),
               ),
             );
           } else {

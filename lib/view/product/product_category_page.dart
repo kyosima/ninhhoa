@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../controller/product/category_detail_controller.dart';
 import '../../unit.dart';
@@ -94,20 +95,33 @@ class ProductCategory extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(kWidth * 0.03),
-          child: Column(
-            children: [
-              Obx(() {
-                if (controller.isLoading.value) {
-                  return SizedBox(
-                      height: 0.7 * kHeight,
-                      child: const Center(child: CircularProgressIndicator()));
-                } else {
-                  return ListView.separated(
+        child: Column(
+          children: [
+            Obx(() {
+              if (controller.isLoading.value) {
+                return Container(
+                  height: kHeight,
+                  color: Color(0xfff6f6f6),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                          height: kHeight * 0.8,
+                          child: Center(
+                              child: Lottie.asset(
+                                  'assets/animations/loading.json',
+                                  width: kWidth,
+                                  fit: BoxFit.cover))),
+                    ],
+                  ),
+                );
+              } else {
+                return Padding(
+                  padding: EdgeInsets.all(kWidth * 0.03),
+                  child: ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context,index){
+                    itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           Get.toNamed('/productDetail',
@@ -118,7 +132,8 @@ class ProductCategory extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: pColor.withOpacity(0.5),),
+                              color: pColor.withOpacity(0.5),
+                            ),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8),
@@ -131,17 +146,20 @@ class ProductCategory extends StatelessWidget {
                                     '${controller.categoryDetail.value?.products![index].featureImage}',
                                     fit: BoxFit.cover,
                                     height: kWidth * 0.2,
-                                    width:kWidth * 0.2,
+                                    width: kWidth * 0.2,
                                   ),
                                 ),
-                                SizedBox(width: 8,),
+                                SizedBox(
+                                  width: 8,
+                                ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       CText(
                                         text:
-                                        '${controller.categoryDetail.value?.products![index].name}',
+                                            '${controller.categoryDetail.value?.products![index].name}',
                                         fontWeight: FontWeight.w500,
                                         maxLine: 2,
                                         textOverflow: TextOverflow.ellipsis,
@@ -150,15 +168,19 @@ class ProductCategory extends StatelessWidget {
                                         height: 5,
                                       ),
                                       CText(
-                                        text: NumberFormat.currency(locale: 'vi',symbol: 'đ').format(
-                                            controller.categoryDetail.value?.products![index].price),
+                                        text: NumberFormat.currency(
+                                                locale: 'vi', symbol: 'đ')
+                                            .format(controller.categoryDetail
+                                                .value?.products![index].price),
                                         color: pColor,
                                       ),
                                       const SizedBox(
                                         height: 5,
                                       ),
                                       CText(
-                                        text: controller.categoryDetail.value?.products![index].shortDesc ?? '',
+                                        text: controller.categoryDetail.value
+                                                ?.products![index].shortDesc ??
+                                            '',
                                         textOverflow: TextOverflow.ellipsis,
                                         maxLine: 2,
                                         fontSize: 13,
@@ -167,25 +189,24 @@ class ProductCategory extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
                         ),
                       );
-                    }, itemCount: controller.categoryDetail.value!.products!.length,
-
+                    },
+                    itemCount:
+                        controller.categoryDetail.value!.products!.length,
                     separatorBuilder: (BuildContext context, int index) {
                       return SizedBox(
                         height: 10,
                       );
                     },
-
-                  );
-                }
-              })
-            ],
-          ),
+                  ),
+                );
+              }
+            })
+          ],
         ),
       ),
     );

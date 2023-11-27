@@ -35,8 +35,8 @@ class ProductDetailController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     getProductDetail();
-    getReview();
-    getToken();
+    // getReview();
+    // getToken();
   }
 
   void getToken() async {

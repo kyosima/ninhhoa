@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../controller/product/product_detail_controller.dart';
@@ -167,8 +168,23 @@ class _ProductDetailPageState extends State<ProductDetailPage>
         ),
         body: Obx(() {
           if (controller.isLoading.value) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return SingleChildScrollView(
+              child: Container(
+                height: kHeight,
+                color: Color(0xfff6f6f6),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                        height: kHeight * 0.8,
+                        child: Center(
+                            child: Lottie.asset(
+                                'assets/animations/loading.json',
+                                width: kWidth,
+                                fit: BoxFit.cover))),
+                  ],
+                ),
+              ),
             );
           } else {
             return SingleChildScrollView(

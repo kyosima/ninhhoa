@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:vincare/widget/shimmer.dart';
+
 import '../../controller/home/home_controller.dart';
 import '../../model/product/category_arguments.dart';
 import '../../unit.dart';
@@ -19,6 +20,7 @@ class HomePage extends StatelessWidget {
     final kHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: Obx(() {
           if (controller.isLoadingInfo.value) {
             return CText(
@@ -30,7 +32,7 @@ class HomePage extends StatelessWidget {
           } else {
             return controller.userInfo.value == null
                 ? CText(
-                    text: 'Shop điện thoại Ninh Hòa!',
+                    text: 'Shop điện thoại Ninh Hòa',
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -114,16 +116,15 @@ class HomePage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(kWidth * 0.05),
           child: Column(
-
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                   height: 42.0,
-                  decoration:  BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.4)
-                    ),
-                      borderRadius: BorderRadius.all(Radius.circular(10),)),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey.withOpacity(0.4)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      )),
                   child: TextField(
                     autofocus: false,
                     controller: controller.keySearch,
@@ -131,7 +132,8 @@ class HomePage extends StatelessWidget {
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         onPressed: () {
-                          Get.toNamed('/search',arguments: controller.keySearch.text);
+                          Get.toNamed('/search',
+                              arguments: controller.keySearch.text);
                         },
                         icon: const Icon(
                           Icons.search,
@@ -141,8 +143,8 @@ class HomePage extends StatelessWidget {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: 'Tìm kiếm điện thoại',
-                      contentPadding:
-                      const EdgeInsets.only(left: 14.0, bottom: 13.0, top: 8.0),
+                      contentPadding: const EdgeInsets.only(
+                          left: 14.0, bottom: 13.0, top: 8.0),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(10),
@@ -189,7 +191,6 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-
               Obx(() {
                 if (controller.isLoadingCategoryProduct.value) {
                   return SizedBox(
@@ -251,8 +252,9 @@ class HomePage extends StatelessWidget {
                   ;
                 } else {
                   return GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
                       mainAxisSpacing: 5,
                       crossAxisSpacing: 5,
                       childAspectRatio: 2,
@@ -270,14 +272,13 @@ class HomePage extends StatelessWidget {
                                       .categoryProduct.value![index].id,
                                   title: controller
                                       .categoryProduct.value![index].name,
-                                  children: controller.categoryProduct
-                                      .value![index].children));
+                                  children: controller
+                                      .categoryProduct.value![index].children));
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: pColor
-                          ),
+                              borderRadius: BorderRadius.circular(5),
+                              color: pColor),
                           child: Center(
                             child: CText(
                               text:
@@ -290,7 +291,6 @@ class HomePage extends StatelessWidget {
                         ),
                       );
                     },
-
                   );
                 }
               }),
@@ -405,14 +405,15 @@ class HomePage extends StatelessWidget {
                       return InkWell(
                         onTap: () {
                           Get.toNamed('/productDetail',
-                              arguments: controller
-                                  .featuredProduct.value![index].id);
+                              arguments:
+                                  controller.featuredProduct.value![index].id);
                         },
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                                color: pColor.withOpacity(0.5),),
+                              color: pColor.withOpacity(0.5),
+                            ),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8),
@@ -425,17 +426,20 @@ class HomePage extends StatelessWidget {
                                     '${controller.featuredProduct.value![index].featureImage}',
                                     fit: BoxFit.cover,
                                     height: kWidth * 0.2,
-                                    width:kWidth * 0.2,
+                                    width: kWidth * 0.2,
                                   ),
                                 ),
-                                SizedBox(width: 8,),
+                                SizedBox(
+                                  width: 8,
+                                ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       CText(
                                         text:
-                                        '${controller.featuredProduct.value![index].name}',
+                                            '${controller.featuredProduct.value![index].name}',
                                         fontWeight: FontWeight.w500,
                                         maxLine: 2,
                                         textOverflow: TextOverflow.ellipsis,
@@ -444,15 +448,19 @@ class HomePage extends StatelessWidget {
                                         height: 5,
                                       ),
                                       CText(
-                                        text: NumberFormat.currency(locale: 'vi',symbol: 'đ').format(
-                                        controller.featuredProduct.value![index].price),
+                                        text: NumberFormat.currency(
+                                                locale: 'vi', symbol: 'đ')
+                                            .format(controller.featuredProduct
+                                                .value![index].price),
                                         color: pColor,
                                       ),
                                       const SizedBox(
                                         height: 5,
                                       ),
                                       CText(
-                                        text: controller.featuredProduct.value![index].shortDesc ?? '',
+                                        text: controller.featuredProduct
+                                                .value![index].shortDesc ??
+                                            '',
                                         textOverflow: TextOverflow.ellipsis,
                                         maxLine: 2,
                                         fontSize: 13,
@@ -461,7 +469,6 @@ class HomePage extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
@@ -479,11 +486,26 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-
-
+              Obx(
+                () => controller.isLoadingBannerQc.value
+                    ? Container()
+                    : controller.bannerQc.value == null
+                        ? Container()
+                        : ClipRRect(
+                            borderRadius: BorderRadius.circular(6),
+                            child: Image.network(
+                                '${controller.bannerQc.value?.items![0].mobileImage}'),
+                          ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  Image.asset('assets/images/fix.png',width: 25,),
+                  Image.asset(
+                    'assets/images/fix.png',
+                    width: 25,
+                  ),
                   const SizedBox(
                     width: 5,
                   ),
@@ -584,8 +606,8 @@ class HomePage extends StatelessWidget {
                             width: kWidth * 0.38,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color:pColor.withOpacity(0.5)),
+                              border:
+                                  Border.all(color: pColor.withOpacity(0.5)),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8),

@@ -61,9 +61,9 @@ class AuthApi {
     }
   }
 
-  static Future<BannerModel?> getBanner({String? token}) async {
+  static Future<BannerModel?> getBanner({String? token, String? key}) async {
     var response =
-        await client.get(Uri.parse('$url/api/v1/slider/show/slider'), headers: {
+        await client.get(Uri.parse('$url/api/v1/slider/show/$key'), headers: {
       'Authorization': 'Bearer $token',
       'X-TOKEN-ACCESS': tokenAccess,
     });

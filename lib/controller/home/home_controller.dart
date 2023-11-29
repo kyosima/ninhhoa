@@ -52,6 +52,9 @@ class HomeController extends GetxController {
   final userInfo = UserInfoModel().data.obs;
   final tokenKey = ''.obs;
   final keySearch = TextEditingController();
+  final isLoadingBannerQc = false.obs;
+  final bannerQc = BannerModel().data.obs;
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -61,58 +64,12 @@ class HomeController extends GetxController {
     getBlog();
     getFeaturedProduct();
     getNewProduct();
-    getCart();
-    getUserInfo();
-    getToken();
-    getMypham();
-    getSua();
-    getDouong();
-    getDichvu();
+    getBannerQc();
   }
 
   void getToken() async {
     final prefs = await SharedPreferences.getInstance();
     tokenKey.value = prefs.getString('token') ?? '';
-  }
-
-  void getSua() async {
-    try {
-      isLoadingSua.value = true;
-      var result = await ProductApi.getCategoryDetail(id: '5');
-      sua.value = result?.data;
-    } finally {
-      isLoadingSua.value = false;
-    }
-  }
-
-  void getDichvu() async {
-    try {
-      isLoadingDichvu.value = true;
-      var result = await ProductApi.getCategoryDetail(id: '3');
-      dichvu.value = result?.data;
-    } finally {
-      isLoadingDichvu.value = false;
-    }
-  }
-
-  void getDouong() async {
-    try {
-      isLoadingDouong.value = true;
-      var result = await ProductApi.getCategoryDetail(id: '4');
-      douong.value = result?.data;
-    } finally {
-      isLoadingDouong.value = false;
-    }
-  }
-
-  void getMypham() async {
-    try {
-      isLoadingMypham.value = true;
-      var result = await ProductApi.getCategoryDetail(id: '6');
-      mypham.value = result?.data;
-    } finally {
-      isLoadingMypham.value = false;
-    }
   }
 
   void getUserInfo() async {
@@ -165,10 +122,22 @@ class HomeController extends GetxController {
       isLoadingBanner.value = true;
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('token');
-      var response = await AuthApi.getBanner(token: token);
+      var response = await AuthApi.getBanner(token: token, key: 'slider');
       banner.value = response?.data;
     } finally {
       isLoadingBanner.value = false;
+    }
+  }
+
+  void getBannerQc() async {
+    try {
+      isLoadingBannerQc.value = true;
+      final prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('token');
+      var response = await AuthApi.getBanner(token: token, key: 'quangcao');
+      bannerQc.value = response?.data;
+    } finally {
+      isLoadingBannerQc.value = false;
     }
   }
 

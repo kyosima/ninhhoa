@@ -30,6 +30,7 @@ class SearchController extends GetxController {
       isLoading.value = true;
       var result = await SearchApi.search(keyword: keyword);
       product.value = result?.data;
+      print(product.value);
     } finally {
       isLoading.value = false;
     }

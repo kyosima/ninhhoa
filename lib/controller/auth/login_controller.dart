@@ -40,7 +40,7 @@ class LoginController extends GetxController {
       controller.getUserInfo();
       final homeController = Get.put(HomeController());
       homeController.getUserInfo();
-      homeController.getCart();
+      // homeController.getCart();
       Get.offAllNamed('/dashboardPage');
       Get.snackbar('Đăng nhập thành công', 'Chào mừng bạn đến với Vin Care',
           backgroundColor: Colors.white.withOpacity(0.5),

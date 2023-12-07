@@ -189,7 +189,7 @@ class HomePage extends StatelessWidget {
                 }
               }),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Obx(() {
                 if (controller.isLoadingCategoryProduct.value) {
@@ -257,7 +257,7 @@ class HomePage extends StatelessWidget {
                       crossAxisCount: 4,
                       mainAxisSpacing: 5,
                       crossAxisSpacing: 5,
-                      childAspectRatio: 2,
+                      childAspectRatio: 2.3,
                     ),
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
@@ -295,7 +295,7 @@ class HomePage extends StatelessWidget {
                 }
               }),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Row(
                 children: [
@@ -316,7 +316,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Obx(() {
                 if (controller.isLoadingFeaturedProduct.value) {
@@ -411,6 +411,7 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
+                            color: Color(0xffffe9ee).withOpacity(0.3),
                             border: Border.all(
                               color: pColor.withOpacity(0.5),
                             ),
@@ -430,7 +431,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 8,
+                                  width: 15,
                                 ),
                                 Expanded(
                                   child: Column(
@@ -498,7 +499,7 @@ class HomePage extends StatelessWidget {
                           ),
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Row(
                 children: [
@@ -520,7 +521,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Obx(() {
                 if (controller.isLoadingBlog.value) {
@@ -592,15 +593,16 @@ class HomePage extends StatelessWidget {
                   );
                 } else {
                   return SizedBox(
-                    height: kHeight * 0.25,
+                    height: kHeight * 0.22,
                     child: ListView.separated(
-                      itemCount: controller.blogs.value!.length,
+                      itemCount: controller.blogs.value!.posts!.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext context, index) {
                         return InkWell(
                           onTap: () {
                             Get.toNamed('/blogDetail',
-                                arguments: controller.blogs.value![index].id);
+                                arguments:
+                                    controller.blogs.value?.posts![index].id);
                           },
                           child: Container(
                             width: kWidth * 0.38,
@@ -617,7 +619,7 @@ class HomePage extends StatelessWidget {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image.network(
-                                      '${controller.blogs.value![index].featureImage}',
+                                      '${controller.blogs.value?.posts![index].featureImage}',
                                       fit: BoxFit.cover,
                                       height: kHeight * 0.12,
                                       width: double.infinity,
@@ -627,21 +629,8 @@ class HomePage extends StatelessWidget {
                                     height: 10,
                                   ),
                                   CText(
-                                    text: DateFormat('dd/MM/yyyy').format(
-                                        DateTime.parse(controller
-                                            .blogs.value![index].postedAt
-                                            .toString())),
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.grey,
-                                    fontSize: 13,
-                                    textOverflow: TextOverflow.ellipsis,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  CText(
                                     text:
-                                        '${controller.blogs.value![index].title}',
+                                        '${controller.blogs.value?.posts![index].title}',
                                     fontWeight: FontWeight.w500,
                                     maxLine: 2,
                                     textOverflow: TextOverflow.ellipsis,
@@ -660,7 +649,173 @@ class HomePage extends StatelessWidget {
                     ),
                   );
                 }
-              })
+              }),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/images/fix.png',
+                    width: 25,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: CText(
+                      text: 'Sửa phần mềm - iCloud - Google Account',
+                      fontSize: 15,
+                      color: pColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Obx(() {
+                if (controller.isLoadingBlog2.value) {
+                  return SizedBox(
+                    height: kHeight * 0.22,
+                    child: ListView.separated(
+                      itemCount: 5,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, index) {
+                        return Shimmer.fromColors(
+                          baseColor: baseColor,
+                          highlightColor: highlightColor,
+                          child: Container(
+                            width: kWidth * 0.37,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: Colors.blue.withOpacity(0.3)),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: ShimmerBox(
+                                            height: kHeight * 0.12,
+                                            width: double.infinity,
+                                          )),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      ShimmerBox(
+                                        height: 15,
+                                        width: double.infinity,
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      ShimmerBox(
+                                        height: 15,
+                                        width: double.infinity,
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return SizedBox(
+                          width: 10,
+                        );
+                      },
+                    ),
+                  );
+                } else {
+                  return SizedBox(
+                    height: kHeight * 0.22,
+                    child: ListView.separated(
+                      itemCount: controller.blogs2.value!.posts!.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, index) {
+                        return InkWell(
+                          onTap: () {
+                            Get.toNamed('/blogDetail',
+                                arguments:
+                                    controller.blogs2.value?.posts![index].id);
+                          },
+                          child: Container(
+                            width: kWidth * 0.38,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border:
+                                  Border.all(color: pColor.withOpacity(0.5)),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.network(
+                                      '${controller.blogs2.value?.posts![index].featureImage}',
+                                      fit: BoxFit.cover,
+                                      height: kHeight * 0.12,
+                                      width: double.infinity,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  CText(
+                                    text:
+                                        '${controller.blogs2.value?.posts![index].title}',
+                                    fontWeight: FontWeight.w500,
+                                    maxLine: 2,
+                                    textOverflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return SizedBox(
+                          width: 10,
+                        );
+                      },
+                    ),
+                  );
+                }
+              }),
+              const SizedBox(
+                height: 20,
+              ),
+              Obx(
+                () => controller.isLoadingBannerQc2.value
+                    ? Container()
+                    : controller.bannerQc2.value == null
+                        ? Container()
+                        : ClipRRect(
+                            borderRadius: BorderRadius.circular(6),
+                            child: Image.network(
+                                '${controller.bannerQc2.value?.items![0].mobileImage}'),
+                          ),
+              ),
             ],
           ),
         ),

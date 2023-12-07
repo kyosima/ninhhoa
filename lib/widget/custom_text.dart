@@ -9,6 +9,7 @@ class CText extends StatelessWidget {
   int? maxLine;
   TextOverflow? textOverflow;
   TextDecoration? textDecoration;
+  TextAlign? textAlight;
   CText({
     Key? key,
     this.text,
@@ -18,6 +19,7 @@ class CText extends StatelessWidget {
     this.maxLine,
     this.textOverflow,
     this.textDecoration,
+    this.textAlight,
   }) : super(key: key);
 
   @override
@@ -26,6 +28,7 @@ class CText extends StatelessWidget {
     final kHeight = MediaQuery.of(context).size.height;
     return Text(
       '$text',
+      textAlign: textAlight,
       maxLines: maxLine,
       overflow: textOverflow,
       style: TextStyle(

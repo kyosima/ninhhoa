@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vincare/unit.dart';
-import 'package:vincare/view/auth/control_view_page.dart';
 import 'package:vincare/view/auth/forget_password_page.dart';
 import 'package:vincare/view/auth/login_page.dart';
 import 'package:vincare/view/auth/register_page.dart';
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'TopZone',
-      home: ControlViewPage(),
+      home: DashboardPage(),
       getPages: [
         GetPage(
           name: ('/login'),

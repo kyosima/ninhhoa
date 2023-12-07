@@ -66,7 +66,7 @@ class CheckoutController extends GetxController {
           backgroundColor: Colors.white.withOpacity(0.5));
       isLoading.value = false;
       final controller = Get.find<HomeController>();
-      controller.getCart();
+      // controller.getCart();
       Get.offAllNamed('/dashboardPage');
     }
   }

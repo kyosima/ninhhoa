@@ -82,6 +82,6 @@ class CartController extends GetxController {
     }
     getCart();
     final controller = Get.find<HomeController>();
-    controller.getCart();
+    // controller.getCart();
   }
 }

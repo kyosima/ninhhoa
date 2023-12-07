@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vincare/model/blog/category_detail_model.dart';
 
 import '../../api/auth/auth_service.dart';
 import '../../api/blog/blog_service.dart';
-import '../../api/checkout/checkout_service.dart';
 import '../../api/product/product_service.dart';
 import '../../api/user/user_service.dart';
 import '../../model/auth/banner_model.dart';
-import '../../model/blog/blog_model.dart';
 import '../../model/checkout/cart_model.dart';
 import '../../model/product/category_detail_model.dart';
 import '../../model/product/category_model.dart';
@@ -43,7 +42,9 @@ class HomeController extends GetxController {
   final isLoadingBanner = false.obs;
   final banner = BannerModel().data.obs;
   final isLoadingBlog = false.obs;
-  final blogs = BlogModel().data.obs;
+  final isLoadingBlog2 = false.obs;
+  final blogs = BlogCategoryDetailModel().data.obs;
+  final blogs2 = BlogCategoryDetailModel().data.obs;
   final isLoadingFeaturedProduct = false.obs;
   final featuredProduct = FeatureProductModel().data.obs;
   final newProduct = FeatureProductModel().data.obs;
@@ -54,22 +55,20 @@ class HomeController extends GetxController {
   final keySearch = TextEditingController();
   final isLoadingBannerQc = false.obs;
   final bannerQc = BannerModel().data.obs;
+  final isLoadingBannerQc2 = false.obs;
+  final bannerQc2 = BannerModel().data.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
-    super.onInit();
-    getCategoryProduct();
     getBanner();
-    getBlog();
-    getFeaturedProduct();
-    getNewProduct();
     getBannerQc();
-  }
-
-  void getToken() async {
-    final prefs = await SharedPreferences.getInstance();
-    tokenKey.value = prefs.getString('token') ?? '';
+    getBannerQc2();
+    getCategoryProduct();
+    getFeaturedProduct();
+    getBlog();
+    getBlog2();
+    super.onInit();
   }
 
   void getUserInfo() async {
@@ -95,25 +94,24 @@ class HomeController extends GetxController {
     }
   }
 
-  void getNewProduct() async {
-    try {
-      isLoadingNewProduct.value = true;
-      var result = await ProductApi.getFeatureProduct(status: '1');
-      newProduct.value = result?.data;
-    } finally {
-      isLoadingNewProduct.value = false;
-    }
-  }
-
   void getBlog() async {
     try {
       isLoadingBlog.value = true;
-      final prefs = await SharedPreferences.getInstance();
-      final token = prefs.getString('token');
-      var result = await BlogApi.getBlog(token: token);
+
+      var result = await BlogApi.getBlogCategoryDetail(id: '1');
       blogs.value = result?.data;
     } finally {
       isLoadingBlog.value = false;
+    }
+  }
+
+  void getBlog2() async {
+    try {
+      isLoadingBlog2.value = true;
+      var result = await BlogApi.getBlogCategoryDetail(id: '2');
+      blogs2.value = result?.data;
+    } finally {
+      isLoadingBlog2.value = false;
     }
   }
 
@@ -141,27 +139,38 @@ class HomeController extends GetxController {
     }
   }
 
-  void getCart() async {
+  void getBannerQc2() async {
     try {
-      isLoadingCart.value = true;
-      final prefs = await SharedPreferences.getInstance();
-      final token = prefs.getString('token');
-      var response = await CheckoutApi.getCart(token: token);
-      cart.value = response?.data;
+      isLoadingBannerQc2.value = true;
+
+      var response = await AuthApi.getBanner(key: 'quangcao2');
+      bannerQc2.value = response?.data;
     } finally {
-      isLoadingCart.value = false;
+      isLoadingBannerQc2.value = false;
     }
   }
 
-  void getCategory() async {
-    try {
-      isLoadingCategory.value = true;
-      var response = await ProductApi.getCategory();
-      category.value = response?.data;
-    } finally {
-      isLoadingCategory.value = false;
-    }
-  }
+  // void getCart() async {
+  //   try {
+  //     isLoadingCart.value = true;
+  //     final prefs = await SharedPreferences.getInstance();
+  //     final token = prefs.getString('token');
+  //     var response = await CheckoutApi.getCart(token: token);
+  //     cart.value = response?.data;
+  //   } finally {
+  //     isLoadingCart.value = false;
+  //   }
+  // }
+  //
+  // void getCategory() async {
+  //   try {
+  //     isLoadingCategory.value = true;
+  //     var response = await ProductApi.getCategory();
+  //     category.value = response?.data;
+  //   } finally {
+  //     isLoadingCategory.value = false;
+  //   }
+  // }
 
   void getCategoryProduct() async {
     try {

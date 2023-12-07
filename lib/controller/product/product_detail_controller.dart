@@ -83,7 +83,7 @@ class ProductDetailController extends GetxController {
         backgroundColor: Colors.white.withOpacity(0.6),
       );
       final controller = Get.find<HomeController>();
-      controller.getCart();
+      // controller.getCart();
     } else {
       isLoadingButton.value = false;
       Get.snackbar(

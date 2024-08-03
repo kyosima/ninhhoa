@@ -512,7 +512,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Expanded(
                     child: CText(
-                      text: 'Sửa chữa - Thay màn hình - Ép kính - Linh kiện',
+                      text: 'Sửa chữa - Thay màn hình - Ép kính - Thay cảm ứng - Thay pin - Độ vỏ',
                       fontSize: 15,
                       color: pColor,
                       fontWeight: FontWeight.bold,

@@ -15,10 +15,11 @@ class DashboardPage extends StatelessWidget {
     return Obx(
       () => Scaffold(
         bottomNavigationBar: SizedBox(
+          height: 40,
           child: BottomNavigationBar(
-            selectedFontSize: kWidth < 600 ? 13 : 20,
+            selectedFontSize: 0,
             type: BottomNavigationBarType.fixed,
-            unselectedFontSize: kWidth < 600 ? 13 : 20,
+            unselectedFontSize: 0,
             iconSize: kWidth < 600 ? 25 : 40,
             unselectedItemColor: const Color(0xff666666),
             selectedItemColor: pColor,
@@ -34,11 +35,11 @@ class DashboardPage extends StatelessWidget {
                 icon: Icon(
                   Icons.home_outlined,
                 ),
-                label: 'Trang chủ',
+                label: '',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.policy_outlined),
-                label: 'Điều khoản',
+                label: '',
               ),
             ],
           ),

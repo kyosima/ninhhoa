@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      title: 'TopZone',
+      title: 'Ninh Hòa Mobile',
       home: DashboardPage(),
       getPages: [
         GetPage(
